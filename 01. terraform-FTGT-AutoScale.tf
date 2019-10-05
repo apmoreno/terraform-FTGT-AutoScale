@@ -1,11 +1,5 @@
-terraform {
-  required_version = ">= 0.12"
-}
-
-variable "region" {
- default = "us-east-1"
- 
-}
+#Need to have copied CloudFormation templates etc into S3 bucket in AWS
+#Need to have an ongoing subscription to FortiGate on-demand (PAYG) in AWS Marketplace
 
 resource "aws_cloudformation_stack" "FTGT-AutoScale" {
   name = "FTGT-AutoScale-stack"
@@ -17,11 +11,16 @@ resource "aws_cloudformation_stack" "FTGT-AutoScale" {
     "FortiGateAdminCidr"="0.0.0.0/0"
     "KeyPairName"="AWS-FTGT"    
     
-    "AvailabilityZones"=[
-    "us-east-1a", 
-    "us-east-1b",
-    ]
-
+#    "AvailabilityZones"= "${var.availability-zones}"
+#    
+#   "AvailabilityZones" = [
+#     "us-east-1a",
+#    "us-east-1b"
+#  ]
+  
+     "AvailabilityZones" = "us-east-1a, us-east-1b"
+     "InternalLoadBalancerDnsName" = ""
+  
   }
   
   on_failure = "ROLLBACK"
@@ -31,5 +30,4 @@ resource "aws_cloudformation_stack" "FTGT-AutoScale" {
   
   template_url="https://apollinaire-fortigate-autoscale.s3.amazonaws.com/deployment-files/templates/workload-master.template"
 
-  
 }
