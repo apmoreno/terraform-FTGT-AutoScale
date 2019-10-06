@@ -1,4 +1,4 @@
-#Need to have copied CloudFormation templates etc into S3 bucket in AWS
+#Need to have copied CloudFormation templates etc into S3 bucket in AWS, which should be made public
 #Need to have an ongoing subscription to FortiGate on-demand (PAYG) in AWS Marketplace
 
 resource "aws_cloudformation_stack" "FTGT-AutoScale" {
@@ -24,6 +24,12 @@ resource "aws_cloudformation_stack" "FTGT-AutoScale" {
   }
   
   on_failure = "ROLLBACK"
+  
+  capabilities = [
+  "CAPABILITY_IAM", 
+  "CAPABILITY_AUTO_EXPAND"
+  ]
+  
   tags = {
         "Name" : "FTGT-AutoScale"
     }
