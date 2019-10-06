@@ -19,3 +19,4 @@ variable "availability-zones" {
     "us-east-1b"
   ]
 }
+

@@ -30,4 +30,4 @@ resource "aws_cloudformation_stack" "FTGT-AutoScale" {
   
   template_url="https://apollinaire-fortigate-autoscale.s3.amazonaws.com/deployment-files/templates/workload-master.template"
 
-}
+} 
