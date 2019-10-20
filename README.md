@@ -15,6 +15,6 @@ The default parameters are applied when creating the VPC resources.
 Some parameters need to be specified - see file 00. variables.tf
 
 The script assumes the prerequisites of the above doc have been met:
-Need to have a valid Key Pair in the AWS region used
-Need to have copied the CloudFormation templates etc into S3 bucket in the same AWS region, this bucket should be made public
-Need to have an ongoing subscription to FortiGate on-demand (PAYG) in AWS Marketplace
+- Need to have a valid Key Pair in the AWS region used
+- Need to have copied the CloudFormation templates etc into S3 bucket in the same AWS region, this bucket should be made public
+- Need to have an ongoing subscription to FortiGate on-demand (PAYG) in AWS Marketplace
