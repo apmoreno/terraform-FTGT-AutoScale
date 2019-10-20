@@ -26,42 +26,42 @@ They concern mainly the VPC settings and can be found in the template: fortigate
 
 Here are the default values of the parameters:
 
-"VPCCIDR": {
+- "VPCCIDR": {
             "Type": "String",
             "Default": "10.0.0.0/16",
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]){1}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
             "ConstraintDescription": "must be a valid CIDR block format.",
             "Description": "The CIDR block for the VPC."
         },
-        "PublicSubnet1CIDR": {
+-         "PublicSubnet1CIDR": {
             "Type": "String",
             "Default": "10.0.0.0/24",
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]){1}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
             "ConstraintDescription": "must be a valid CIDR block format.",
             "Description": "The CIDR block for the public (DMZ) subnet located in Availability Zone 1."
         },
-        "PublicSubnet2CIDR": {
+-         "PublicSubnet2CIDR": {
             "Type": "String",
             "Default": "10.0.2.0/24",
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]){1}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
             "ConstraintDescription": "must be a valid CIDR block format.",
             "Description": "The CIDR block for the public (DMZ) subnet located in Availability Zone 2."
         },
-        "PrivateSubnet1CIDR": {
+-         "PrivateSubnet1CIDR": {
             "Type": "String",
             "Default": "10.0.1.0/24",
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]){1}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
             "ConstraintDescription": "must be a valid CIDR block format.",
             "Description": "The CIDR block for the private subnet located in Availability Zone 1."
         },
-        "PrivateSubnet2CIDR": {
+-         "PrivateSubnet2CIDR": {
             "Type": "String",
             "Default": "10.0.3.0/24",
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]){1}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
             "ConstraintDescription": "must be a valid CIDR block format.",
             "Description": "The CIDR block for the private subnet located in Availability Zone 2."
         },
-        "FortiGateInstanceType": {
+-         "FortiGateInstanceType": {
             "Type": "String",
             "Default": "c5.large",
             "AllowedValues": [
@@ -75,7 +75,7 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must be a valid EC2 instance type.",
             "Description": "Instance type to launch as FortiGate On-Demand instances. There are t2.small and compute-optimized instances such as c4 and c5 available with different vCPU sizes and bandwidths. For more information about instance types, see https://aws.amazon.com/ec2/instance-types/"
         },
-        "FortiOSVersion": {
+-         "FortiOSVersion": {
             "Type": "String",
             "Default": "Latest (6.2.1)",
             "AllowedValues": [
@@ -86,7 +86,7 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must be a valid FortiOS version from the selection.",
             "Description": "FortiOS versions."
         },
-        "ExpireLifecycleEntry": {
+-        "ExpireLifecycleEntry": {
             "Type": "Number",
             "Default": 400,
             "MinValue": 60,
@@ -94,7 +94,7 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must be a valid number between 60 and 3600.",
             "Description": "FortiGate instance lifecycle expiry entry (in seconds). Minimum is 60. Maximum is 3600."
         },
-        "FortiGateAsgCooldown": {
+-         "FortiGateAsgCooldown": {
             "Type": "Number",
             "Default": 300,
             "MinValue": 60,
@@ -102,35 +102,35 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must be a valid number between 60 and 3600.",
             "Description": "Auto Scaling group waits for the cooldown period (in seconds) to complete before resuming scaling activities. Minimum is 60. Maximum is 3600."
         },
-        "FortiGateAsgDesiredCapacity": {
+-         "FortiGateAsgDesiredCapacity": {
             "Type": "Number",
             "Default": 2,
             "MinValue": 2,
             "ConstraintDescription": "must be a valid number not less than 2.",
             "Description": "The number of FortiGate instances the group should have at any time, also called desired capacity. Must keep at least 2 FortiGates in the group for High Availability. Minimum is 2."
         },
-        "FortiGateAsgMinSize": {
+-         "FortiGateAsgMinSize": {
             "Type": "Number",
             "Default": 2,
             "MinValue": 2,
             "ConstraintDescription": "must be a valid number not less than 2.",
             "Description": "Minimum number of FortiGate instances in the Auto Scaling Group. Minimum is 2."
         },
-        "FortiGateAsgMaxSize": {
+-         "FortiGateAsgMaxSize": {
             "Type": "Number",
             "Default": 4,
             "MinValue": 2,
             "ConstraintDescription": "must be a valid number not less than 2.",
             "Description": "Maximum number of FortiGate instances in the Auto Scaling Group. Minimum is 2."
         },
-        "FortiGateAsgHealthCheckGracePeriod": {
+-         "FortiGateAsgHealthCheckGracePeriod": {
             "Type": "Number",
             "Default": 300,
             "MinValue": 60,
             "ConstraintDescription": "must be a valid number not less than 60.",
             "Description": "The length of time (in seconds) that Auto Scaling waits before checking an instance's health status. Minimum is 60."
         },
-        "FortiGateAsgScaleInThreshold": {
+-         "FortiGateAsgScaleInThreshold": {
             "Type": "Number",
             "Default": 25,
             "MinValue": 1,
@@ -138,7 +138,7 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must be a valid number between 1 and 100.",
             "Description": "The threshold (in percentage) for the FortiGate Auto Scaling group to scale-in (remove) 1 instance. Minimum is 1. Maximum is 100."
         },
-        "FortiGateAsgScaleOutThreshold": {
+-         "FortiGateAsgScaleOutThreshold": {
             "Type": "Number",
             "Default": 80,
             "MinValue": 1,
@@ -146,14 +146,14 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must be a valid number between 1 and 100.",
             "Description": "The threshold (in percentage) for the FortiGate Auto Scaling group to scale-out (add) 1 instance. Minimum is 1. Maximum is 100."
         },
-        "FortiGateElbTgHealthyThreshold": {
+-         "FortiGateElbTgHealthyThreshold": {
             "Type": "Number",
             "Default": 3,
             "MinValue": 3,
             "ConstraintDescription": "must be a valid number not less than 3.",
             "Description": "The number of consecutive health check failures required before considering a FortiGate instance unhealthy. Minimum is 3."
         },
-        "BalanceWebTrafficOverPort": {
+-         "BalanceWebTrafficOverPort": {
             "Type": "Number",
             "Default": 443,
             "MinValue": 1,
@@ -161,7 +161,7 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must be a valid port number between 1 and 65535.",
             "Description": "Balance web service traffic over this port if the internal web-service load balancer is enabled. Minimum is 1. Maximum is 65535."
         },
-        "InternalLoadBalancingOptions": {
+-         "InternalLoadBalancingOptions": {
             "Type": "String",
             "Default": "add a new internal load balancer",
             "AllowedValues": [
@@ -172,7 +172,7 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must choose from the provided options.",
             "Description": "Options for add an optional pre-defined load balancer to route traffic to web service in the private subnets. You can optionally use your own one or decide to not need one."
         },
-        "InternalLoadBalancerDnsName": {
+-         "InternalLoadBalancerDnsName": {
             "Type": "String",
             "Description": "(Optional)DNS Name of the Elastic Load Balancer which is used in the private subnets. Specify if only you use your own one."
         },
@@ -182,7 +182,7 @@ Here are the default values of the parameters:
             "MaxLength": "128",
             "Description": "A secret key for the FortiGate instances to securely communicate with each other. It can be of your choice of a string, such as numbers or letters or the combination of them. Max length 128."
         },
-        "FortiGateAdminPort": {
+-         "FortiGateAdminPort": {
             "Type": "Number",
             "Default": 8443,
             "MinValue": 1,
@@ -190,18 +190,18 @@ Here are the default values of the parameters:
             "ConstraintDescription": "must be a valid port number between 1 and 65535.",
             "Description": "A port number for FortiGate administration. Minimum is 1. Maximum is 65535. Do not use: 443, 541, 514, 703 because these are FortiGate reserved ports."
         },
-        "FortiGateAdminCidr": {
+-         "FortiGateAdminCidr": {
             "Type": "String",
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]){1}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
             "ConstraintDescription": "must be a valid CIDR block format and 0.0.0.0/0 is highly not recommended.",
             "Description": "CIDR block for external admin management access. **WARNING!** 0.0.0.0/0 accepts connections from any IP address. We recommend that you use a constrained CIDR range to reduce the potential of inbound attacks from unknown IP addresses."
         },
-        "KeyPairName": {
+-         "KeyPairName": {
             "Type": "AWS::EC2::KeyPair::KeyName",
             "ConstraintDescription": "must specify an admin access key pair for FortiGate instances.",
             "Description": "Amazon EC2 Key Pair for admin access."
         },
-        "HeartBeatLossCount": {
+-         "HeartBeatLossCount": {
             "Type": "Number",
             "Default": 3,
             "MinValue": 1,
