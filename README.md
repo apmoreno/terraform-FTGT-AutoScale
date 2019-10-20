@@ -26,7 +26,7 @@ They concern mainly the VPC settings and can be found in the template: fortigate
 
 Here are the default values of the parameters:
 
-- "VPCCIDR": {
+-         "VPCCIDR": {
             "Type": "String",
             "Default": "10.0.0.0/16",
             "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]){1}(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
