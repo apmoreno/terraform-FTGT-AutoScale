@@ -1,20 +1,14 @@
-# Deploys Fortigates as part of an AutoScale group behind a Network Load Balancer on AWS using the CloudFormation templates found in Rls 1.0.6 found on the projects page of the Fortinet Github site: https://github.com/fortinet/fortigate-autoscale/releases 
-# Deployment uses the Pay As You Go (PAYG) model 
-# This script automates the instructions for "Deploying auto scaling on AWS without Transit Gateway integration" found on the following Fortinet Docs location: https://docs.fortinet.com/vm/aws/fortigate/6.2/aws-cookbook/6.2.0/543390/deploying-auto-scaling-on-aws-without-transit-gateway-integration 
-# This script assumes the prerequisites of the above doc have been met:
-# Need to have a valid Key Pair in the AWS region used
-# Need to have copied the CloudFormation templates etc into S3 bucket in the same AWS region, this bucket should be made public
-# Need to have an ongoing subscription to FortiGate on-demand (PAYG) in AWS Marketplace
+# See README.md for details and prerequisites
 
 resource "aws_cloudformation_stack" "FTGT-AutoScale" {
   name = "FTGT-AutoScale-stack"
 
   parameters = {
-    "QSS3BucketName"="apollinaire-fortigate-autoscale"
-    "QSS3KeyPrefix"="deployment-files/"
-    "FortiGatePskSecret"="FTNT"
-    "FortiGateAdminCidr"="0.0.0.0/0"
-    "KeyPairName"="AWS-FTGT"    
+    "QSS3BucketName"="${var.tf_QSS3BucketName}"
+    "QSS3KeyPrefix"="${var.tf_QSS3KeyPrefix}"
+    "FortiGatePskSecret"="${var.tf_FortiGatePskSecret}"
+    "FortiGateAdminCidr"="${var.tf_FortiGateAdminCidr}"
+    "KeyPairName"="${var.tf_KeyPairName}"   
     
 #    "AvailabilityZones"= "${var.availability-zones}"
 #    
